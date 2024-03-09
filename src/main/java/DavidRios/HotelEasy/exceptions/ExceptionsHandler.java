@@ -32,7 +32,7 @@ public class ExceptionsHandler {
         return new ErrorDTO(ex.getMessage(), LocalDateTime.now());
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
+    @ExceptionHandler(DavidRios.HotelEasy.exceptions.AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ErrorDTO handleAccessDenied(AccessDeniedException ex) {
         return new ErrorDTO("Restricted endpoint.", LocalDateTime.now());
