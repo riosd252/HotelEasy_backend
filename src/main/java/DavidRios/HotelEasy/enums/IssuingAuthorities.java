@@ -1,6 +1,6 @@
 package DavidRios.HotelEasy.enums;
 
-public enum IssueAuthorities {
+public enum IssuingAuthorities {
     COMUNE,
     MOTORIZZAZIONE,
     QUESTURA,

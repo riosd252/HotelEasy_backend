@@ -1,6 +1,6 @@
 package DavidRios.HotelEasy.enums;
 
-public enum ExtraTypes {
+public enum ExtraServicesTypes {
     PER_PERSONA,
     PER_CAMERA
 }
