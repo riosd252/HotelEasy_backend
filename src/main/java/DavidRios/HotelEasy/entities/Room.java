@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "rooms")
 @NoArgsConstructor
@@ -25,6 +28,8 @@ public class Room {
     private int roomSquareMeters;
     private int maxCapacity;
     private String roomDescription;
+    @OneToMany(mappedBy = "room")
+    private List<RoomPhoto> roomPhotos = new ArrayList<>();
     @Enumerated(EnumType.STRING)
     private RoomHygieneStatuses hygieneStatus;
     @Enumerated(EnumType.STRING)
@@ -39,5 +44,9 @@ public class Room {
         this.roomDescription = roomDescription;
         this.hygieneStatus = RoomHygieneStatuses.PULITO;
         this.roomStatus = RoomGenericStatuses.DISPONIBILE;
+    }
+
+    public void setRoomPhoto (RoomPhoto roomPhoto) {
+        this.roomPhotos.add(roomPhoto);
     }
 }

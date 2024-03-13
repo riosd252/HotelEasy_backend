@@ -20,7 +20,7 @@ public class IdentificationDoc {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Setter(AccessLevel.NONE)
-    private BigInteger id;
+    private long id;
     @Enumerated(EnumType.STRING)
     private IdentificationDocs documentType;
     private String documentNumber;

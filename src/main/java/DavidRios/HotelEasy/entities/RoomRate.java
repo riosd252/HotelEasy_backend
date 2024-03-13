@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 
 @Entity
@@ -18,7 +17,7 @@ public class RoomRate {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Setter(AccessLevel.NONE)
-    private BigInteger id;
+    private long id;
     @ManyToOne
     @JoinColumn(name = "room_type_id")
     private RoomType roomType;

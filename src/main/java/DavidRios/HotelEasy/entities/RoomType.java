@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class RoomType {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Setter(AccessLevel.NONE)
-    private BigInteger id;
+    private long id;
     private String roomType;
     @OneToMany(mappedBy = "roomType")
     private List<RoomRate> roomRates = new ArrayList<>();

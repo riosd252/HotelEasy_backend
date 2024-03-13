@@ -18,7 +18,7 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Setter(AccessLevel.NONE)
-    private BigInteger id;
+    private long id;
     private String streetName;
     private String civicNumber;
     private BigInteger postalCode;
