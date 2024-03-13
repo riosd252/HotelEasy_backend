@@ -35,6 +35,11 @@ public class Room {
     @Enumerated(EnumType.STRING)
     private RoomGenericStatuses roomStatus;
     private String staffAnnotations;
+    @ManyToMany
+    @JoinTable(name = "reservation_rooms",
+            joinColumns = {@JoinColumn(name = "room_id")},
+            inverseJoinColumns = {@JoinColumn(name = "reservation_id")})
+    private List<Reservation> reservations;
 
     public Room(int roomNumber, RoomType roomType, int roomSquareMeters, int maxCapacity, String roomDescription) {
         this.roomNumber = roomNumber;
@@ -48,5 +53,9 @@ public class Room {
 
     public void setRoomPhoto (RoomPhoto roomPhoto) {
         this.roomPhotos.add(roomPhoto);
+    }
+
+    public void setReservation (Reservation reservation) {
+        this.reservations.add(reservation);
     }
 }
