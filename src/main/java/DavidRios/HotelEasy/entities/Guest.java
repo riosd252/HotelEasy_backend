@@ -1,6 +1,6 @@
 package DavidRios.HotelEasy.entities;
 
-import DavidRios.HotelEasy.enums.StaffRoles;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -9,16 +9,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "staff")
+@Table(name = "guests")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Staff {
+public class Guest {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Setter(AccessLevel.NONE)
     private UUID id;
     private String name;
@@ -27,16 +28,24 @@ public class Staff {
     private String email;
     @JsonIgnore
     private String password;
-    @Enumerated(EnumType.STRING)
-    private StaffRoles role;
-    private String avatar;
+    @OneToOne
+    @JoinColumn(name = "identification_doc_id")
+    private IdentificationDoc identificationDoc;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+    private boolean hasCheckedIn;
+    private LocalTime checkInTime;
+    private boolean hasCheckedOut;
+    private LocalTime checkOutTime;
 
-    public Staff (String name, String surname, LocalDate birthDate, String email, String password) {
+    public Guest(String name, String surname, LocalDate birthDate, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
         this.email = email;
         this.password = password;
-        this.role = StaffRoles.FRONTOFFICE;
+        this.hasCheckedIn = false;
+        this.hasCheckedOut = false;
     }
 }
