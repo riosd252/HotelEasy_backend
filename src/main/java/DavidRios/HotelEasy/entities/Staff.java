@@ -37,6 +37,5 @@ public class Staff {
         this.birthDate = birthDate;
         this.email = email;
         this.password = password;
-        this.role = StaffRoles.FRONTOFFICE;
     }
 }
