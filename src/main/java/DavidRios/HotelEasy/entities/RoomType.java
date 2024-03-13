@@ -23,6 +23,8 @@ public class RoomType {
     private String roomType;
     @OneToMany(mappedBy = "roomType")
     private List<RoomRate> roomRates = new ArrayList<>();
+    @OneToMany(mappedBy = "roomType")
+    private List<Room> rooms = new ArrayList<>();
 
     public RoomType(String roomType) {
         this.roomType = roomType;
@@ -30,5 +32,9 @@ public class RoomType {
 
     public void setRoomRate (RoomRate roomRate) {
       this.roomRates.add(roomRate);
+    }
+
+    public void setRoom (Room room) {
+        this.rooms.add(room);
     }
 }
