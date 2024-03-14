@@ -21,7 +21,7 @@ public class Address {
     private long id;
     private String streetName;
     private String civicNumber;
-    private BigInteger postalCode;
+    private long postalCode;
     private String municipality;
     private String province;
     private String country;
@@ -29,7 +29,7 @@ public class Address {
     @OneToOne
     private Guest guest;
 
-    public Address(String streetName, String civicNumber, BigInteger postalCode, String municipality, String province, String country, Guest guest) {
+    public Address(String streetName, String civicNumber, long postalCode, String municipality, String province, String country, Guest guest) {
         this.streetName = streetName;
         this.civicNumber = civicNumber;
         this.postalCode = postalCode;
