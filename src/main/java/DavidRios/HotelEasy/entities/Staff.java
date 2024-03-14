@@ -2,6 +2,7 @@ package DavidRios.HotelEasy.entities;
 
 import DavidRios.HotelEasy.enums.StaffRoles;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -21,6 +22,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties({"password", "credentialsNonExpired", "accountNonExpired", "authorities", "accountNonLocked", "enabled"})
 public class Staff implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -30,7 +32,6 @@ public class Staff implements UserDetails {
     private String surname;
     private LocalDate birthDate;
     private String email;
-    @JsonIgnore
     private String password;
     @Enumerated(EnumType.STRING)
     private StaffRoles role;
