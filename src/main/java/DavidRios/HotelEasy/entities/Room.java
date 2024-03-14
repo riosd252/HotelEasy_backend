@@ -31,9 +31,9 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private List<RoomPhoto> roomPhotos = new ArrayList<>();
     @Enumerated(EnumType.STRING)
-    private RoomHygieneStatuses hygieneStatus;
+    private RoomHygieneStatuses hygieneStatus = RoomHygieneStatuses.PULITO;
     @Enumerated(EnumType.STRING)
-    private RoomGenericStatuses roomStatus;
+    private RoomGenericStatuses roomStatus = RoomGenericStatuses.DISPONIBILE;
     private String staffAnnotations;
     @ManyToMany
     @JoinTable(name = "reservation_rooms",
@@ -47,8 +47,6 @@ public class Room {
         this.roomSquareMeters = roomSquareMeters;
         this.maxCapacity = maxCapacity;
         this.roomDescription = roomDescription;
-        this.hygieneStatus = RoomHygieneStatuses.PULITO;
-        this.roomStatus = RoomGenericStatuses.DISPONIBILE;
     }
 
     public void setRoomPhoto (RoomPhoto roomPhoto) {
